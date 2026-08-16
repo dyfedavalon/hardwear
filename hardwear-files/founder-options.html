@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founder portrait — pick one</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:48px;}
+  .opt{background:var(--canvas);border-radius:var(--r-card);overflow:hidden;margin:0;}
+  .opt img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--hairline);}
+  .opt figcaption{padding:24px 26px;}
+  .opt h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:0;}
+  .opt p{font-size:15px;color:var(--gray-deep);margin:8px 0 0;line-height:1.45;}
+  .opt code{font-size:12px;color:var(--gray-mid);word-break:break-all;display:block;margin-top:14px;}
+  .src{max-width:300px;border-radius:var(--r-card);overflow:hidden;background:var(--canvas);}
+  .src img{width:100%;}
+  .warn{background:#fff4ef;border:1px solid #f0cdbb;border-radius:var(--r-card);padding:26px 28px;margin-top:36px;}
+  .warn h3{font-family:var(--font-display);font-size:20px;font-weight:600;margin:0 0 10px;color:var(--ember);}
+  .warn p{font-size:16px;color:var(--gray-deep);margin:0 0 10px;line-height:1.5;}
+  .warn li{font-size:16px;color:var(--gray-deep);line-height:1.5;margin-bottom:6px;}
+  @media (max-width:820px){ .opts{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="mark">HARDWEAR</a>
+    <div class="nav-links"><a href="founder.html">Back to the founder page</a></div>
+  </div>
+</nav>
+
+<section class="bg-paper" style="padding-bottom:40px">
+  <div class="wrap narrow">
+    <p class="kicker">Internal — not part of the site</p>
+    <h1 class="h">Founder portrait: pick one.</h1>
+    <p class="body lg">Four generated options from the new photo, plus the chosen final below. I can't see these from the sandbox — the image host is blocked to me — so <strong>you need to judge them</strong>. <strong>Option D in a black t-shirt is now live</strong> on the founder page.</p><figure class="opt" style="max-width:420px;margin-top:32px;border:2px solid var(--ember)"><img src="https://galaxy-prod.tlcdn.com/gen/e84ad736bf7e4665bf11b572ddc36546.jpeg" alt="Chosen: option D in a plain black t-shirt"><figcaption><h3>LIVE — D, black t-shirt</h3><p>Option D edited so the navy overshirt becomes a plain black crew-neck. Face, pose, framing, background and lighting carried over from D unchanged.</p><code>e84ad736bf7e4665bf11b572ddc36546</code></figcaption></figure>
+
+    <div class="warn">
+      <h3>Check these three things on whichever you pick</h3>
+      <ul>
+        <li><strong>Is the hand actually gone?</strong> The source had a raised middle finger overlapping his cheek. Look for leftover fingers, a stray knuckle, or a mangled shoulder where the arm was rebuilt.</li>
+        <li><strong>Does it still look like Ashley?</strong> These are generative re-renders, not retouches. Models drift on jawline, nose width, eye spacing and beard shape. His call, not mine.</li>
+        <li><strong>Hands and ears at full size.</strong> Open it at 100% — this is where generative images usually fall apart.</li>
+      </ul>
+      <p style="margin-bottom:0">If none of them hold up, a real photo against a white wall by a window beats all four. Save it as <code style="display:inline">assets/img/ashley-roberts.jpg</code>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-canvas" style="padding-top:40px">
+  <div class="wrap">
+    <p class="kicker">The source photo you sent</p>
+    <div class="src">
+      <img src="https://at.adobe.com/x5Z61OuF4457Oa7Q" alt="Source photograph of Ashley Roberts">
+    </div>
+
+    <div class="opts">
+      <figure class="opt">
+        <img src="https://galaxy-prod.tlcdn.com/gen/df55f6c0a83349b39b04ac150f5aff90.jpeg" alt="Option A — charcoal crew-neck on studio white">
+        <figcaption>
+          <h3>A — Crew-neck, studio white</h3>
+          <p>Plain charcoal t-shirt, pure white backdrop, softbox lighting. The straightforward corporate headshot.</p>
+          <code>df55f6c0a83349b39b04ac150f5aff90</code>
+        </figcaption>
+      </figure>
+
+      <figure class="opt">
+        <img src="https://galaxy-prod.tlcdn.com/gen/5721556d99394211bc4466fa3de98d4e.jpeg" alt="Option B — collared work shirt on studio white">
+        <figcaption>
+          <h3>B — Work shirt, studio white</h3>
+          <p>Dark collared work shirt instead of a tee. Reads a little more like a founder and less like a staff badge photo.</p>
+          <code>5721556d99394211bc4466fa3de98d4e</code>
+        </figcaption>
+      </figure>
+
+      <figure class="opt">
+        <img src="https://galaxy-prod.tlcdn.com/gen/0dec31cad15d4087aef18449cbb1f2db.jpeg" alt="Option C — wearing the Hamilton Brown cap">
+        <figcaption>
+          <h3>C — Wearing the cap</h3>
+          <p>In the Hamilton Brown Core Cap. Strongest brand fit if the cap renders convincingly — but it's the option most likely to look wrong, since the cap is invented rather than photographed. Check the peak and the badge.</p>
+          <code>0dec31cad15d4087aef18449cbb1f2db</code>
+        </figcaption>
+      </figure>
+
+      <figure class="opt">
+        <img src="https://galaxy-prod.tlcdn.com/gen/4ecf27455d9c4140851598b9381e4dc1.jpeg" alt="Option D — editorial portrait against a pale wall">
+        <figcaption>
+          <h3>D — Editorial, pale wall</h3>
+          <p>Window light against a light grey wall, navy overshirt, slightly wider crop. Documentary rather than glossy — closest in feel to the rest of the site. <strong>Chosen — see the black t-shirt version at the top.</strong></p>
+          <code>4ecf27455d9c4140851598b9381e4dc1</code>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="body" style="margin-top:40px">Tell me the letter and I'll swap it into <code>founder.html</code> and the fetch script. Or paste the hash into the <code>&lt;img id="founderPortrait"&gt;</code> src yourself — full URL is <code>https://galaxy-prod.tlcdn.com/gen/&lt;hash&gt;.jpeg</code></p>
+  </div>
+</section>
+
+</body>
+</html>

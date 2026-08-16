@@ -1,0 +1,69 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write      # needed to commit the localised images back once
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The pages hot-link their imagery to the CDN it was generated on.
+      # GitHub's runners have open internet (the authoring sandbox did not),
+      # so localise everything here, once, and commit it back to the repo.
+      - name: Localise imagery
+        id: localise
+        run: |
+          if [ -d assets/img ] && [ "$(ls -A assets/img 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "Images already local — skipping fetch."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            chmod +x fetch-assets.sh
+            ./fetch-assets.sh
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit localised imagery
+        if: steps.localise.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/img ./*.html
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Localise site imagery [skip ci]"
+            git push
+          fi
+
+      - name: Disable Jekyll processing
+        run: touch .nojekyll
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true      # turns Pages on automatically, so there's no manual setup step
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
